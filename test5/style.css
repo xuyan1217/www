@@ -1,0 +1,43 @@
+body {
+  background: #6c373f;
+  display: flex;
+  justify-content: center;
+  }
+#alice-container {
+  width: 90vh;
+  display: grid;
+  place-items: center;
+  grid-template-areas:
+  "a1 a9 a8"
+  "a4 a2 a7"
+  "a6 a5 a3";
+}
+
+
+#alice1 { grid-area: a1;  
+   width: 90%;
+  height: auto}
+#alice2 { grid-area: a2; 
+   width: 90%;
+  height: auto }
+#alice3 { grid-area: a3; 
+   width: 90%;
+  height: auto }
+#alice4 { grid-area: a4; 
+   width: 90%;
+  height: auto }
+#alice5 { grid-area: a5; 
+   width: 90%;
+  height: auto }
+#alice6 { grid-area: a6; 
+   width: 90%;
+  height: auto }
+#alice7 { grid-area: a7;  
+  width: 90%;
+  height: auto }
+#alice8 { grid-area: a8; 
+   width: 90%;
+  height: auto }
+ #alice9 { grid-area: a9; 
+    width: 90%;
+   height: auto }
