@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif; /* 添加字体 */
 }
 
 .scene {
@@ -13,6 +14,9 @@ body {
     justify-content: center;
     align-items: center;
     transition: opacity 0.5s ease-in-out;
+    border-radius: 15px; /* 圆角效果 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    overflow: hidden; /* 隐藏溢出内容 */
 }
 
 .scene-img {
@@ -41,30 +45,39 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9); /* 更加透明的背景 */
+    padding: 15px; /* 增加内边距 */
+    border-radius: 10px; /* 圆角效果 */
     z-index: 1;
     animation: blink 1s infinite;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* 添加阴影 */
 }
 
 .centered-text {
     text-align: center;
 }
-
-#welcome h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.welcome-title {
+    font-size: 36px; /* 增大字体 */
+    color: #333; /* 字体颜色 */
+    text-align: center; /* 居中对齐 */
+    margin-bottom: 30px; /* 增加下边距，设置与按钮的距离 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* 字体阴影 */
 }
 
-#startGameButton {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+.start-button {
+    background-color: #007bff; /* 按钮颜色 */
+    color: white; /* 字体颜色 */
+    padding: 15px 30px; /* 增加内边距 */
+    border: none; /* 去掉边框 */
+    border-radius: 5px; /* 圆角效果 */
+    cursor: pointer; /* 鼠标悬停时显示为手指 */
+    font-size: 18px; /* 增大字体 */
+    transition: background-color 0.3s, transform 0.3s; /* 添加过渡效果 */
+}
+
+.start-button:hover {
+    background-color: #0056b3; /* 悬停时更改颜色 */
+    transform: scale(1.05); /* 悬停时放大效果 */
 }
 
 .temple-result {
@@ -108,17 +121,21 @@ body {
     font-size: 18px;
 }
 
-/* 守卫从左到右移动动画 */
 @keyframes guardMove {
-    from {
+    0% {
         left: 0;
-        top: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
     }
-    to {
+    50% {
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(15deg);
+    }
+    100% {
         left: 100%;
-        top: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
     }
 }
+
 
 /* 神庙场景的继续探索按钮样式，增大并靠近场景 */
 #temple #continueButton {

@@ -10,16 +10,16 @@
 
 <body>
     <div id="welcome" class="scene">
-        <div class="centered-text">
-            <h1 id="welcomeMessage">欢迎进入寻宝游戏</h1>
-            <button id="startGameButton">点击开始游戏</button>
-        </div>
+    <h1 class="welcome-title">欢迎进入寻宝游戏</h1>
+    <button id="startGameButton" class="start-button">开始游戏</button>
+</div>
+
     </div>
     <div id="library" class="scene" style="display: none;">
         <div class="centered-text">
             <h1>图书馆</h1>
             <img src="library.jpg" alt="图书馆" class="scene-img centered">
-            <img src="scroll.jpg" alt="卷轴" class="scroll" onclick="startTreasureHunt()">
+            <img src="scroll.png" alt="卷轴" class="scroll" onclick="startTreasureHunt()">
             <p id="libraryMessage" class="message centered-text"></p>
         </div>
     </div>
@@ -34,13 +34,13 @@
     <div id="treasure" class="scene" style="display: none;">
         <div class="centered-text">
             <h1>宝藏</h1>
-            <img src="treasure.jpg" alt="宝藏" class="scene-img centered">
+            <img src="treasure.png" alt="宝藏" class="scene-img centered">
             <p class="centered-text">恭喜！你找到了传说中的宝藏！</p>
         </div>
     </div>
     <div id="guardPage" class="scene" style="display: none;">
         <div class="centered-text">
-            <img src="guard.jpg" alt="守卫" class="guard-image centered">
+            <img src="guard.png" alt="守卫" class="guard-image centered">
             <p id="guardMessage">糟糕，遇到守卫，寻宝失败。</p>
         </div>
     </div>
