@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻宝游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 音频控制 -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="background.ogg" type="audio/ogg">
+        您的浏览器不支持音频播放
+    </audio>
+    <button id="musicToggle" class="music-button">
+        <span class="music-icon">🔇</span>
+    </button>
+
+    <!-- 登录场景 -->
+    <div id="login" class="scene">
+        <div class="login-container">
+            <h2>登录</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="playerId">玩家ID:</label>
+                    <input type="text" id="playerId" required>
+                </div>
+                <div class="form-group">
+                    <label for="nickname">昵称:</label>
+                    <input type="text" id="nickname" required>
+                </div>
+                <button type="submit" class="login-button">进入游戏</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 欢迎场景 -->
+    <div id="welcome" class="scene">
+        <div class="welcome-container">
+            <h1 class="welcome-title">欢迎进入寻宝游戏</h1>
+            <div class="player-info">
+                <p>玩家ID: <span id="displayPlayerId"></span></p>
+                <p>昵称: <span id="displayNickname"></span></p>
+            </div>
+            <button id="startGameButton" class="start-button">开始游戏</button>
+        </div>
+    </div>
+
+    <!-- 图书馆场景 -->
+    <div id="library" class="scene">
+        <div class="scene-content">
+            <h2 class="scene-title"></h2>
+            <div class="scene-description">
+                <p class="main-desc"></p>
+                <p class="sub-desc"></p>
+            </div>
+            <img src="images/library.jpg" alt="图书馆" class="scene-img">
+            <img src="images/scroll.png" alt="卷轴" class="scroll">
+            <p id="libraryMessage" class="message"></p>
+        </div>
+    </div>
+
+    <!-- 神庙场景 -->
+    <div id="temple" class="scene">
+        <div class="scene-content">
+            <h2 class="scene-title"></h2>
+            <div class="scene-description">
+                <p class="main-desc"></p>
+                <p class="sub-desc"></p>
+            </div>
+            <img src="images/temple.jpg" alt="神庙" class="scene-img">
+            <button id="continueButton" class="continue-button">继续探索</button>
+            <p id="templeResult" class="message"></p>
+        </div>
+    </div>
+
+    <!-- 守卫场景 -->
+    <div id="guardPage" class="scene">
+        <div class="scene-content">
+            <h2 class="scene-title">神庙守卫</h2>
+            <div class="guard-container">
+                <img src="images/guard.png" alt="守卫" class="guard-img">
+                <div class="guard-effect"></div>
+            </div>
+            <div class="scene-description guard-text">
+                <p class="main-desc"></p>
+                <p class="sub-desc"></p>
+            </div>
+            <p id="guardMessage" class="message warning-text">你被守卫发现了！</p>
+            <button id="tryAgainButton" class="try-again-button">重新尝试</button>
+        </div>
+    </div>
+<!-- 宝藏场景 -->
+<div id="treasure" class="scene">
+    <div class="scene-content">
+        <h2 class="scene-title">神秘宝藏</h2>
+        <div class="scene-description">
+            <p class="main-desc"></p>
+            <p class="sub-desc"></p>
+        </div>
+        <img src="images/treasure.png" alt="宝藏" class="scene-img">
+        <p id="treasureMessage" class="message"></p>
+        <button id="restartButton" class="restart-button">重新开始</button>
+    </div>
+</div>
+
+<!-- 游戏历史面板 -->
+<div id="historyContainer" class="history-container">
+    <h3>游戏历史记录</h3>
+    <div class="history-list"></div>
+</div>
+
+<!-- 登出按钮 -->
+<button id="logoutButton" class="logout-button">退出登录</button>
+    <script src="script.js"></script>
+</body>
+</html>

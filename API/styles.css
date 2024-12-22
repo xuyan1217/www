@@ -1,0 +1,638 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 场景基础样式 */
+.scene {
+    display: none;  /* 默认隐藏所有场景 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+
+/* 欢迎场景样式 */
+#welcome {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+    text-align: center;
+}
+
+.welcome-title {
+    color: #fff;
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.start-button {
+    padding: 15px 40px;
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 场景内容容器 */
+.scene-content {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+
+/* 场景头部 */
+.scene-header {
+    background: linear-gradient(to right, #2c3e50, #3498db);
+    padding: 20px;
+    text-align: center;
+}
+.scene.active {
+    display: flex;
+}
+.scene-title {
+    color: #fff;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 场景主要内容区 */
+.scene-main {
+    padding: 30px;
+    position: relative;
+    height: calc(100% - 70px);
+    background-color: #f8f9fa;
+}
+
+/* 场景图片 */
+.scene-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.scene-img:hover {
+    transform: scale(1.01);
+}
+
+/* 卷轴样式 */
+.scroll {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.scroll:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+}
+
+.scroll-animate {
+    transform: scale(1.3) rotate(10deg);
+}
+
+/* 消息样式 */
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 继续探索按钮 */
+.continue-button {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 40px;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.continue-button:hover {
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .scene-content {
+        width: 90%;
+        height: 80vh;
+    }
+
+    .scene-img {
+        height: 350px;
+    }
+}
+
+/* 场景切换动画 */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* 在原有样式基础上添加以下内容 */
+
+/* 登录场景样式 */
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 16px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    background: linear-gradient(45deg, #2980b9, #3498db);
+    transform: translateY(-2px);
+}
+
+/* 游戏历史面板样式 */
+.history-panel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.close-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #666;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 玩家信息样式 */
+.player-info {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* 音乐控制按钮样式 */
+.music-button {
+    position: fixed;  /* 固定定位 */
+    top: 20px;       /* 距离顶部 */
+    right: 20px;     /* 距离右侧 */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;  /* 圆形按钮 */
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    z-index: 1000;   /* 确保按钮始终在最上层 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+.music-icon {
+    font-size: 20px;
+}
+
+/* 添加悬停提示 */
+.music-button::after {
+    content: '音乐开关';
+    position: absolute;
+    right: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.music-button:hover::after {
+    opacity: 1;
+}
+/* 宝藏场景特殊样式 */
+#treasure .scene-img {
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    animation: treasure-glow 2s infinite alternate;
+}
+
+/* 宝藏发光动画 */
+@keyframes treasure-glow {
+    from {
+        filter: drop-shadow(0 0 5px gold);
+    }
+    to {
+        filter: drop-shadow(0 0 20px gold);
+    }
+}
+
+/* 重新开始按钮样式 */
+.restart-button {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 40px;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(45deg, #f1c40f, #f39c12);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.restart-button:hover {
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 守卫场景特殊样式 */
+.guard-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.guard-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: guard-alert 1.5s infinite;
+}
+
+.guard-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,0,0,0.2), transparent);
+    animation: guard-glow 2s infinite alternate;
+}
+
+.guard-text {
+    text-align: center;
+    color: #ff3333;
+    text-shadow: 0 0 5px rgba(255,0,0,0.3);
+    animation: text-pulse 2s infinite;
+}
+
+.warning-text {
+    color: #ff3333;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    animation: warning-flash 1s infinite;
+}
+
+.try-again-button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 40px;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(45deg, #ff3333, #ff6666);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: button-pulse 2s infinite;
+}
+
+.try-again-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255,0,0,0.3);
+}
+
+/* 动画效果 */
+@keyframes guard-alert {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes guard-glow {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+@keyframes text-pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+@keyframes warning-flash {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes button-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 图书馆消息淡入淡出效果 */
+.fade-message {
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+}
+
+/* 场景描述动画 */
+.scene-description {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.main-desc, .sub-desc {
+    position: relative;
+    padding-left: 20px;
+}
+
+.main-desc::before {
+    content: '📜';
+    position: absolute;
+    left: -10px;
+    opacity: 0.7;
+}
+
+.sub-desc::before {
+    content: '💭';
+    position: absolute;
+    left: -10px;
+    opacity: 0.7;
+}
+
+/* 寻宝提示动画 */
+.message {
+    transition: opacity 0.5s ease;
+    text-align: center;
+    font-size: 18px;
+    color: #2c3e50;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+/* 探索效果 */
+.continue-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.continue-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%
+    );
+    animation: explore-shine 3s linear infinite;
+}
+
+@keyframes explore-shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* 历史记录样式 */
+.history-container {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+    min-width: 300px;
+    z-index: 1000;
+}
+
+.player-info-history {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.history-item {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.history-item:hover {
+    background-color: #f5f5f5;
+}
+
+.failed-event {
+    color: #e74c3c;
+    border-left: 3px solid #e74c3c;
+}
+
+.success-event {
+    color: #27ae60;
+    border-left: 3px solid #27ae60;
+}
+
+/* 滚动条样式 */
+.history-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.history-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.history-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.history-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 登出按钮样式 */
+.logout-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
